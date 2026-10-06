@@ -1,0 +1,472 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Mobile baseball themed birthday parties. We bring the batting cage, pitching machine, radar pitching cage, and the whole party to your house. $1,099 for two hours.">
+<style>body{margin:0}</style>
+<title>Major League Birthday Parties</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Big+Shoulders+Display:wght@700;800;900&family=Orbitron:wght@600;800&display=swap">
+<style>
+/* Layout: chalk-white page with outfield-green bands; hero pairs a headline with a working radar-gun scoreboard.
+   Color: chalk, outfield green, scoreboard amber, stitch red, ink. Type: Big Shoulders Display / Barlow / Orbitron (LED). */
+:root {
+  --bg: #EDF0EA;
+  --card: #F8FAF5;
+  --fg: #10231B;
+  --muted: #4E6358;
+  --line: #C5CFC4;
+  --field: #0F3B2B;
+  --field-deep: #0A2A1F;
+  --field-ink: #F4F7F1;
+  --field-muted: #A9C0B2;
+  --led: #FFB81C;
+  --stitch: #D1352B;
+  --on-stitch: #FFFFFF;
+  --focus: #0F3B2B;
+  --font-display: "Big Shoulders Display", "Arial Narrow", Impact, sans-serif;
+  --font-body: "Barlow", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-led: "Orbitron", "Courier New", monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0B1713; --card: #12221B; --fg: #E9F0E9; --muted: #9DB1A5; --line: #26382F;
+    --field: #0F3B2B; --field-deep: #07190F; --field-ink: #F4F7F1; --field-muted: #A9C0B2;
+    --stitch: #EF5148; --on-stitch: #0B1713; --focus: #FFB81C; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0B1713; --card: #12221B; --fg: #E9F0E9; --muted: #9DB1A5; --line: #26382F;
+  --field: #0F3B2B; --field-deep: #07190F; --field-ink: #F4F7F1; --field-muted: #A9C0B2;
+  --stitch: #EF5148; --on-stitch: #0B1713; --focus: #FFB81C; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { animation: none !important; transition: none !important; } }
+body { background: var(--bg); color: var(--fg); font-family: var(--font-body); font-size: 17px; line-height: 1.55; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+.wrap { width: 100%; max-width: 1140px; margin-inline: auto; padding-inline: clamp(16px, 4vw, 40px); }
+h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; line-height: 0.92; letter-spacing: 0.005em; margin: 0; text-wrap: balance; }
+.eyebrow { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); margin: 0; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; font: 600 1rem/1 var(--font-body); letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; padding: 1rem 1.5rem; border: 2px solid transparent; border-radius: 4px; cursor: pointer; min-height: 52px; }
+.btn-primary { background: var(--stitch); color: var(--on-stitch); }
+.btn-primary:hover { filter: brightness(1.08); }
+.btn-ghost { border-color: currentColor; background: transparent; color: inherit; }
+.btn-ghost:hover { background: color-mix(in srgb, currentColor 10%, transparent); }
+
+/* Header */
+.top { padding-block: 20px; }
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; font-family: var(--font-display); font-weight: 800; font-size: 1.35rem; line-height: 1; text-transform: uppercase; letter-spacing: 0.02em; }
+.brand svg { flex: none; }
+.nav { display: flex; gap: 22px; align-items: center; font-weight: 500; font-size: 0.95rem; }
+.nav a { text-decoration: none; }
+.nav a:hover { text-decoration: underline; text-underline-offset: 4px; }
+@media (max-width: 560px) { .nav a.hide-sm { display: none; } }
+
+/* Hero */
+.hero { padding-block: clamp(28px, 6vw, 64px) clamp(40px, 7vw, 80px); }
+.hero-grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); gap: clamp(28px, 5vw, 64px); align-items: center; }
+@media (max-width: 860px) { .hero-grid { grid-template-columns: minmax(0, 1fr); } }
+.hero h1 { font-weight: 900; font-size: clamp(3.1rem, 10.5vw, 7.2rem); margin-block: 14px 22px; }
+.hero h1 .red { color: var(--stitch); }
+.hero .lede { font-size: 1.2rem; max-width: 34em; margin: 0 0 28px; }
+.cta-row { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
+.price-note { font-weight: 600; }
+.price-note span { color: var(--muted); font-weight: 400; }
+
+.board { background: var(--field-deep); color: var(--field-ink); border: 3px solid var(--field-ink); border-radius: 6px; padding: clamp(18px, 3vw, 28px); box-shadow: 0 0 0 6px var(--field-deep); margin: 6px; }
+.board-head { display: flex; justify-content: space-between; gap: 12px; font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--field-muted); font-weight: 600; }
+.led-row { display: flex; align-items: baseline; gap: 12px; margin-block: 14px 6px; }
+.led { font-family: var(--font-led); font-weight: 800; font-size: clamp(5rem, 17vw, 8rem); line-height: 1; color: var(--led); text-shadow: 0 0 18px color-mix(in srgb, var(--led) 55%, transparent); font-variant-numeric: tabular-nums; min-width: 2ch; }
+.led-unit { font-family: var(--font-led); font-weight: 600; font-size: 1.3rem; color: var(--led); letter-spacing: 0.1em; }
+.verdict { min-height: 1.6em; font-weight: 600; font-size: 1.05rem; margin: 0 0 14px; }
+.log { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 16px; padding: 0; list-style: none; }
+.log li { font-family: var(--font-led); font-size: 0.9rem; padding: 4px 10px; border: 1px solid color-mix(in srgb, var(--field-ink) 30%, transparent); border-radius: 3px; color: var(--field-ink); font-variant-numeric: tabular-nums; }
+.log li.best { border-color: var(--led); color: var(--led); }
+.board-foot { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.board-foot small { color: var(--field-muted); font-size: 0.85rem; }
+.board .btn-primary { min-width: 11rem; }
+
+/* What we bring */
+.section { padding-block: clamp(48px, 8vw, 96px); }
+.section-head { display: grid; gap: 12px; margin-bottom: clamp(26px, 4vw, 44px); max-width: 40rem; }
+.section-head h2 { font-size: clamp(2.4rem, 6.5vw, 4.4rem); font-weight: 800; }
+.bring-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+@media (max-width: 760px) { .bring-grid { grid-template-columns: minmax(0, 1fr); } }
+.panel { background: var(--card); border: 1px solid var(--line); border-radius: 6px; padding: clamp(20px, 3vw, 30px); display: grid; gap: 14px; align-content: start; min-width: 0; }
+.panel h3 { font-size: 2rem; font-weight: 800; }
+.panel p { margin: 0; color: var(--muted); }
+.panel svg.art { width: 100%; height: auto; max-height: 230px; color: var(--fg); }
+.mini-led { display: inline-flex; align-items: baseline; gap: 8px; background: var(--field-deep); padding: 14px 20px; border-radius: 4px; justify-self: start; }
+.mini-led b { font-family: var(--font-led); font-size: 3rem; line-height: 1; color: var(--led); font-weight: 800; }
+.mini-led i { font-family: var(--font-led); font-style: normal; color: var(--led); font-size: 0.9rem; letter-spacing: 0.1em; }
+.whole { grid-column: 1 / -1; background: var(--field); color: var(--field-ink); border-color: var(--field); grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr); gap: 24px; align-items: center; }
+.whole p { color: var(--field-muted); }
+.whole h3 { font-size: clamp(2.2rem, 5vw, 3.4rem); }
+.whole ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; }
+.whole li { display: flex; gap: 12px; align-items: baseline; font-weight: 500; }
+.whole li::before { content: ""; flex: none; width: 10px; height: 10px; border-radius: 50%; background: var(--led); transform: translateY(1px); }
+@media (max-width: 760px) { .whole { grid-template-columns: minmax(0, 1fr); } }
+
+/* How it works */
+.steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; border-top: 3px solid var(--fg); }
+@media (max-width: 760px) { .steps { grid-template-columns: minmax(0, 1fr); } }
+.step { padding: 22px 24px 8px 0; display: grid; gap: 8px; align-content: start; }
+@media (max-width: 760px) { .step { padding-right: 0; border-bottom: 1px solid var(--line); padding-bottom: 22px; } }
+.step .n { font-family: var(--font-led); font-weight: 800; font-size: 1.05rem; color: var(--stitch); }
+.step h3 { font-size: 1.9rem; font-weight: 800; }
+.step p { margin: 0; color: var(--muted); max-width: 22rem; }
+
+/* Price */
+.price-band { background: var(--field); color: var(--field-ink); }
+.price-grid { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: clamp(28px, 5vw, 64px); align-items: center; }
+@media (max-width: 860px) { .price-grid { grid-template-columns: minmax(0, 1fr); } }
+.price-band h2 { font-size: clamp(2.4rem, 6.5vw, 4.4rem); font-weight: 800; margin-block: 12px 14px; }
+.price-band .eyebrow { color: var(--field-muted); }
+.price-band p.sub { color: var(--field-muted); max-width: 28rem; margin: 0; }
+.ticket { display: grid; grid-template-columns: minmax(0, 1fr) 150px; background: var(--card); color: var(--fg); border-radius: 8px; position: relative; }
+@media (max-width: 520px) { .ticket { grid-template-columns: minmax(0, 1fr); } }
+.ticket::before, .ticket::after { content: ""; position: absolute; width: 26px; height: 26px; border-radius: 50%; background: var(--field); right: calc(150px - 13px); }
+.ticket::before { top: -13px; }
+.ticket::after { bottom: -13px; }
+@media (max-width: 520px) { .ticket::before, .ticket::after { display: none; } }
+.ticket-main { padding: clamp(22px, 4vw, 34px); display: grid; gap: 14px; min-width: 0; }
+.ticket-main .eyebrow { color: var(--muted); }
+.amount { font-family: var(--font-display); font-weight: 900; font-size: clamp(5rem, 14vw, 7.5rem); line-height: 0.85; display: flex; align-items: flex-start; gap: 4px; }
+.amount sup { font-size: 0.4em; margin-top: 0.1em; color: var(--stitch); }
+.ticket-main .for { font-weight: 600; font-size: 1.1rem; margin: 0; }
+.ticket-main ul { margin: 4px 0 0; padding: 0; list-style: none; display: grid; gap: 6px; color: var(--muted); }
+.ticket-main li::before { content: "\2713"; color: var(--stitch); font-weight: 700; margin-right: 10px; }
+.stub { border-left: 2px dashed var(--line); padding: 22px 16px; display: grid; gap: 14px; align-content: center; justify-items: center; text-align: center; }
+@media (max-width: 520px) { .stub { border-left: 0; border-top: 2px dashed var(--line); } }
+.stub .admit { font-family: var(--font-display); font-weight: 800; font-size: 1.9rem; text-transform: uppercase; line-height: 0.95; }
+.stub .btn { padding-inline: 1rem; width: 100%; }
+
+/* Booking */
+.book-grid { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: clamp(28px, 5vw, 64px); align-items: start; }
+@media (max-width: 860px) { .book-grid { grid-template-columns: minmax(0, 1fr); } }
+.book-copy h2 { font-size: clamp(2.4rem, 6.5vw, 4.4rem); font-weight: 800; margin-block: 12px 16px; }
+.book-copy p { color: var(--muted); margin: 0 0 14px; max-width: 28rem; }
+.contact { display: grid; gap: 4px; margin-top: 18px; font-weight: 600; }
+.contact span { user-select: all; }
+form.card { background: var(--card); border: 1px solid var(--line); border-radius: 6px; padding: clamp(18px, 3vw, 30px); display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+@media (max-width: 520px) { form.card { grid-template-columns: minmax(0, 1fr); } }
+.field { display: grid; gap: 6px; min-width: 0; }
+.field.full { grid-column: 1 / -1; }
+label { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+input, textarea { font: inherit; font-size: 1rem; color: var(--fg); background: var(--bg); border: 1.5px solid var(--line); border-radius: 4px; padding: 0.8rem 0.9rem; width: 100%; min-height: 48px; }
+textarea { min-height: 96px; resize: vertical; }
+input:focus-visible, textarea:focus-visible { outline: 3px solid var(--focus); outline-offset: 1px; border-color: var(--fg); }
+.form-foot { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.form-foot small { color: var(--muted); }
+.result { grid-column: 1 / -1; display: grid; gap: 12px; border-top: 2px dashed var(--line); padding-top: 18px; }
+.result pre { margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; font: 0.98rem/1.5 var(--font-body); background: var(--bg); border: 1.5px solid var(--line); border-radius: 4px; padding: 14px 16px; user-select: all; }
+.result .row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.status { font-weight: 600; }
+
+footer { border-top: 1px solid var(--line); padding-block: 28px; color: var(--muted); font-size: 0.9rem; }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Major League Birthday Parties, home">
+      <svg width="34" height="34" viewBox="0 0 32 32" aria-hidden="true">
+        <circle cx="16" cy="16" r="14" fill="#F8FAF5" stroke="currentColor" stroke-width="2"/>
+        <path d="M9.5 5.5c4.2 4.4 4.2 16.6 0 21" fill="none" stroke="#D1352B" stroke-width="2" stroke-linecap="round" stroke-dasharray="2.6 2.4"/>
+        <path d="M22.5 5.5c-4.2 4.4-4.2 16.6 0 21" fill="none" stroke="#D1352B" stroke-width="2" stroke-linecap="round" stroke-dasharray="2.6 2.4"/>
+      </svg>
+      <span>Major League<br>Birthday Parties</span>
+    </a>
+    <nav class="nav" aria-label="Page sections">
+      <a class="hide-sm" href="#bring">What we bring</a>
+      <a class="hide-sm" href="#how">How it works</a>
+      <a class="hide-sm" href="#price">Price</a>
+      <a class="btn btn-primary" href="#book" style="min-height:44px;padding:0.75rem 1.1rem">Book a date</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">Baseball birthday parties, delivered</p>
+        <h1>The whole ballpark, in your <span class="red">backyard.</span></h1>
+        <p class="lede">We bring the full batting cage and pitching machine, the radar pitching cage, and the whole party to your house. One stop shop for a baseball themed party.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#book">Book your party</a>
+          <p class="price-note">$1,099 <span>for two hours</span></p>
+        </div>
+      </div>
+
+      <div class="board" role="group" aria-label="Radar pitching cage demo">
+        <div class="board-head"><span>Radar pitching cage</span><span id="boardTag">Sample pitches</span></div>
+        <div class="led-row">
+          <div class="led" id="reading" aria-live="polite" aria-atomic="true">38</div>
+          <div class="led-unit">MPH</div>
+        </div>
+        <p class="verdict" id="verdict">Solid arm</p>
+        <ul class="log" id="log" aria-label="Pitch log"></ul>
+        <div class="board-foot">
+          <button class="btn btn-primary" id="throwBtn" type="button">Throw a pitch</button>
+          <small>Every kid gets a number to beat.</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="bring">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">What we bring</p>
+        <h2>Everything a baseball party needs, on one truck.</h2>
+      </div>
+      <div class="bring-grid">
+        <article class="panel">
+          <svg class="art" viewBox="0 0 400 260" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" role="img" aria-label="Drawing of a batting cage seen from the plate">
+            <rect x="20" y="10" width="360" height="240" opacity="0.9"/>
+            <rect x="56" y="30" width="288" height="194" opacity="0.5"/>
+            <rect x="93" y="50" width="214" height="147" opacity="0.5"/>
+            <rect x="130" y="70" width="140" height="100"/>
+            <path d="M20 10L130 70M380 10L270 70M20 250L130 170M380 250L270 170"/>
+            <path d="M165 70v100M200 70v100M235 70v100M130 103h140M130 137h140" opacity="0.45"/>
+            <path d="M178 232l22-12 22 12-8 12h-28z" fill="#F8FAF5" stroke="#10231B" stroke-width="1.5"/>
+          </svg>
+          <h3>Batting cage and pitching machine</h3>
+          <p>The full batting cage and a pitching machine set up at your house. Every kid steps in and takes real swings.</p>
+        </article>
+        <article class="panel">
+          <div class="mini-led" aria-hidden="true"><b>47</b><i>MPH</i></div>
+          <h3>Radar pitching cage</h3>
+          <p>Kids throw into the pitching cage and see their speed light up on the radar gun. The rest of the team counts it down, and everyone chases the best number of the day.</p>
+        </article>
+        <article class="panel whole">
+          <div style="display:grid;gap:12px">
+            <h3>The entire party</h3>
+            <p>A baseball themed party, start to finish.</p>
+          </div>
+          <ul>
+            <li>We come to you. No venue to book.</li>
+            <li>We set up the batting cage, pitching machine, and radar pitching cage at your house.</li>
+            <li>Two hours of baseball for the birthday kid and the whole team.</li>
+            <li>One call, one price, nothing to piece together.</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="how" style="padding-top:0">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">How it works</p>
+        <h2>Three steps to game day.</h2>
+      </div>
+      <div class="steps">
+        <div class="step"><span class="n">STEP 1</span><h3>Pick the date</h3><p>Tell us the day, your address, and how many players are coming.</p></div>
+        <div class="step"><span class="n">STEP 2</span><h3>We roll up</h3><p>We bring the batting cage, pitching machine, radar pitching cage, and the whole party to your house.</p></div>
+        <div class="step"><span class="n">STEP 3</span><h3>Play ball</h3><p>Two hours of swings and fastballs. You get to enjoy the party.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section price-band" id="price">
+    <div class="wrap price-grid">
+      <div>
+        <p class="eyebrow">Simple pricing</p>
+        <h2>One price. One call.</h2>
+        <p class="sub">No add-ons to chase and no venue to rent. The whole baseball party comes to your house for a flat rate.</p>
+      </div>
+      <div class="ticket">
+        <div class="ticket-main">
+          <p class="eyebrow">Game day pass</p>
+          <div class="amount"><sup>$</sup>1,099</div>
+          <p class="for">Two hours at your house</p>
+          <ul>
+            <li>Full batting cage and pitching machine</li>
+            <li>Radar pitching cage</li>
+            <li>The whole baseball party</li>
+          </ul>
+        </div>
+        <div class="stub">
+          <div class="admit">Admit<br>one<br>team</div>
+          <a class="btn btn-primary" href="#book">Book it</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="book">
+    <div class="wrap book-grid">
+      <div class="book-copy">
+        <p class="eyebrow">Book your date</p>
+        <h2>Step up to the plate.</h2>
+        <p>Fill this in and we will have what we need to hold your date. Your request is written out below, ready to copy and send to us.</p>
+        <div class="contact" id="contact" hidden></div>
+      </div>
+      <form class="card" id="bookForm" novalidate>
+        <div class="field"><label for="parent">Your name</label><input id="parent" name="parent" autocomplete="name" required></div>
+        <div class="field"><label for="kid">Birthday kid</label><input id="kid" name="kid" required></div>
+        <div class="field"><label for="age">Turning</label><input id="age" name="age" type="number" min="3" max="18" inputmode="numeric"></div>
+        <div class="field"><label for="date">Party date</label><input id="date" name="date" type="date" required></div>
+        <div class="field full"><label for="place">Party address or city</label><input id="place" name="place" autocomplete="street-address" required></div>
+        <div class="field"><label for="kids">Kids coming</label><input id="kids" name="kids" type="number" min="1" max="60" inputmode="numeric"></div>
+        <div class="field"><label for="time">Start time</label><input id="time" name="time" type="time"></div>
+        <div class="field full"><label for="notes">Anything else</label><textarea id="notes" name="notes" placeholder="Yard size, gate codes, favorite team"></textarea></div>
+        <div class="form-foot">
+          <button class="btn btn-primary" type="submit">Write my request</button>
+          <small>$1,099 for two hours</small>
+        </div>
+        <div class="result" id="result" hidden>
+          <pre id="msg"></pre>
+          <div class="row">
+            <button class="btn btn-ghost" id="copyBtn" type="button">Copy request</button>
+            <span class="status" id="status" role="status"></span>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>&copy; 2026 Major League Birthday Parties</span>
+    <span>Batting cage. Pitching machine. Radar pitching cage. The whole party.</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var CONTACT = { phone: "", email: "" }; // add the real phone number and email here
+
+  var reading = document.getElementById("reading");
+  var verdict = document.getElementById("verdict");
+  var log = document.getElementById("log");
+  var tag = document.getElementById("boardTag");
+  var btn = document.getElementById("throwBtn");
+  var pitches = [34, 41, 29, 46, 38];
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  function label(v) {
+    if (v < 32) return "Warming up";
+    if (v < 41) return "Solid arm";
+    if (v < 50) return "Bringing heat";
+    return "Big league arm";
+  }
+  function renderLog() {
+    var best = Math.max.apply(null, pitches);
+    log.innerHTML = "";
+    pitches.slice(-6).forEach(function (p) {
+      var li = document.createElement("li");
+      li.textContent = p;
+      if (p === best) { li.className = "best"; li.title = "Best pitch"; }
+      log.appendChild(li);
+    });
+  }
+  renderLog();
+
+  var timer = null;
+  btn.addEventListener("click", function () {
+    if (timer) return;
+    var v = 28 + Math.floor(Math.random() * 31);
+    if (pitches.length === 5 && tag.textContent === "Sample pitches") { pitches = []; tag.textContent = "Your pitches"; }
+    btn.disabled = true;
+    verdict.textContent = "Windup...";
+    function settle() {
+      reading.textContent = v;
+      verdict.textContent = label(v);
+      pitches.push(v);
+      renderLog();
+      btn.disabled = false;
+      timer = null;
+    }
+    if (reduce) { settle(); return; }
+    var ticks = 0;
+    timer = setInterval(function () {
+      ticks++;
+      reading.textContent = 10 + Math.floor(Math.random() * 60);
+      if (ticks > 11) { clearInterval(timer); settle(); }
+    }, 70);
+  });
+
+  // Contact details appear only when filled in above.
+  var c = document.getElementById("contact");
+  if (CONTACT.phone || CONTACT.email) {
+    c.hidden = false;
+    if (CONTACT.phone) { var a = document.createElement("span"); a.textContent = CONTACT.phone; c.appendChild(a); }
+    if (CONTACT.email) { var b = document.createElement("span"); b.textContent = CONTACT.email; c.appendChild(b); }
+  }
+
+  var form = document.getElementById("bookForm");
+  var result = document.getElementById("result");
+  var msg = document.getElementById("msg");
+  var status = document.getElementById("status");
+  var copyBtn = document.getElementById("copyBtn");
+
+  function prettyDate(v) {
+    var p = v.split("-");
+    if (p.length !== 3) return v;
+    var d = new Date(+p[0], +p[1] - 1, +p[2]);
+    return d.toLocaleDateString(undefined, { weekday: "long", month: "long", day: "numeric", year: "numeric" });
+  }
+  function prettyTime(v) {
+    var p = v.split(":");
+    var h = +p[0], m = p[1];
+    return ((h % 12) || 12) + ":" + m + (h >= 12 ? " PM" : " AM");
+  }
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var f = form.elements;
+    var missing = ["parent", "kid", "date", "place"].filter(function (k) { return !f[k].value.trim(); });
+    if (missing.length) {
+      f[missing[0]].focus();
+      status.textContent = "";
+      result.hidden = false;
+      msg.textContent = "Please fill in your name, the birthday kid, the party date, and the address or city.";
+      copyBtn.hidden = true;
+      return;
+    }
+    copyBtn.hidden = false;
+    var lines = [];
+    lines.push("Hi Major League Birthday Parties! I would like to book the two-hour baseball party ($1,099).");
+    lines.push("");
+    lines.push("Birthday kid: " + f.kid.value.trim() + (f.age.value ? " (turning " + f.age.value + ")" : ""));
+    lines.push("Date: " + prettyDate(f.date.value) + (f.time.value ? " at " + prettyTime(f.time.value) : ""));
+    lines.push("Location: " + f.place.value.trim());
+    if (f.kids.value) lines.push("Kids coming: " + f.kids.value);
+    if (f.notes.value.trim()) lines.push("Notes: " + f.notes.value.trim());
+    lines.push("");
+    lines.push("Thanks, " + f.parent.value.trim());
+    msg.textContent = lines.join("\n");
+    status.textContent = "";
+    result.hidden = false;
+  });
+
+  copyBtn.addEventListener("click", function () {
+    var text = msg.textContent;
+    function fallback() {
+      var r = document.createRange();
+      r.selectNodeContents(msg);
+      var s = window.getSelection();
+      s.removeAllRanges();
+      s.addRange(r);
+      status.textContent = "Text selected. Press copy on your device.";
+    }
+    try {
+      navigator.clipboard.writeText(text).then(function () { status.textContent = "Copied."; }, fallback);
+    } catch (err) { fallback(); }
+  });
+})();
+</script>
+
+</body>
+</html>
