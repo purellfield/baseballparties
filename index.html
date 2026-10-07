@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Mobile baseball themed birthday parties. We bring the batting cage, pitching machine, radar pitching cage, and the whole party to your house. $1,099 for two hours.">
+<meta name="description" content="Mobile baseball themed birthday parties. We bring the batting cage, pitching machine, radar pitching cage, and the whole party to your house. $1,099 for two hours. Text 216-789-5861 to book.">
 <style>body{margin:0}</style>
 <title>Major League Birthday Parties</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -147,26 +147,15 @@ h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; line-h
 .stub .btn { padding-inline: 1rem; width: 100%; }
 
 /* Booking */
-.book-grid { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: clamp(28px, 5vw, 64px); align-items: start; }
+.book-grid { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: clamp(28px, 5vw, 64px); align-items: center; }
 @media (max-width: 860px) { .book-grid { grid-template-columns: minmax(0, 1fr); } }
 .book-copy h2 { font-size: clamp(2.4rem, 6.5vw, 4.4rem); font-weight: 800; margin-block: 12px 16px; }
-.book-copy p { color: var(--muted); margin: 0 0 14px; max-width: 28rem; }
-.contact { display: grid; gap: 4px; margin-top: 18px; font-weight: 600; }
-.contact span { user-select: all; }
-form.card { background: var(--card); border: 1px solid var(--line); border-radius: 6px; padding: clamp(18px, 3vw, 30px); display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
-@media (max-width: 520px) { form.card { grid-template-columns: minmax(0, 1fr); } }
-.field { display: grid; gap: 6px; min-width: 0; }
-.field.full { grid-column: 1 / -1; }
-label { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
-input, textarea { font: inherit; font-size: 1rem; color: var(--fg); background: var(--bg); border: 1.5px solid var(--line); border-radius: 4px; padding: 0.8rem 0.9rem; width: 100%; min-height: 48px; }
-textarea { min-height: 96px; resize: vertical; }
-input:focus-visible, textarea:focus-visible { outline: 3px solid var(--focus); outline-offset: 1px; border-color: var(--fg); }
-.form-foot { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
-.form-foot small { color: var(--muted); }
-.result { grid-column: 1 / -1; display: grid; gap: 12px; border-top: 2px dashed var(--line); padding-top: 18px; }
-.result pre { margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; font: 0.98rem/1.5 var(--font-body); background: var(--bg); border: 1.5px solid var(--line); border-radius: 4px; padding: 14px 16px; user-select: all; }
-.result .row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
-.status { font-weight: 600; }
+.book-copy p { color: var(--muted); margin: 0; max-width: 28rem; }
+.text-card { background: var(--card); border: 1px solid var(--line); border-radius: 6px; padding: clamp(22px, 4vw, 36px); display: grid; gap: 18px; min-width: 0; }
+.text-card .num { font-family: var(--font-display); font-weight: 900; font-size: clamp(2.8rem, 9vw, 4.6rem); line-height: 0.95; letter-spacing: 0.01em; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+.text-card ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 6px; color: var(--muted); }
+.text-card li::before { content: "\2713"; color: var(--stitch); font-weight: 700; margin-right: 10px; }
+.text-card .btn { justify-self: start; }
 
 footer { border-top: 1px solid var(--line); padding-block: 28px; color: var(--muted); font-size: 0.9rem; }
 footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
@@ -188,7 +177,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
       <a class="hide-sm" href="#bring">What we bring</a>
       <a class="hide-sm" href="#how">How it works</a>
       <a class="hide-sm" href="#price">Price</a>
-      <a class="btn btn-primary" href="#book" style="min-height:44px;padding:0.75rem 1.1rem">Book a date</a>
+      <a class="btn btn-primary" href="sms:+12167895861" style="min-height:44px;padding:0.75rem 1.1rem">Text 216-789-5861</a>
     </nav>
   </div>
 </header>
@@ -201,7 +190,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
         <h1>The whole ballpark, in your <span class="red">backyard.</span></h1>
         <p class="lede">We bring the full batting cage and pitching machine, the radar pitching cage, and the whole party to your house. One stop shop for a baseball themed party.</p>
         <div class="cta-row">
-          <a class="btn btn-primary" href="#book">Book your party</a>
+          <a class="btn btn-primary" href="sms:+12167895861">Text 216-789-5861</a>
           <p class="price-note">$1,099 <span>for two hours</span></p>
         </div>
       </div>
@@ -256,7 +245,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
             <li>We come to you. No venue to book.</li>
             <li>We set up the batting cage, pitching machine, and radar pitching cage at your house.</li>
             <li>Two hours of baseball for the birthday kid and the whole team.</li>
-            <li>One call, one price, nothing to piece together.</li>
+            <li>One text, one price, nothing to piece together.</li>
           </ul>
         </article>
       </div>
@@ -270,7 +259,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
         <h2>Three steps to game day.</h2>
       </div>
       <div class="steps">
-        <div class="step"><span class="n">STEP 1</span><h3>Pick the date</h3><p>Tell us the day, your address, and how many players are coming.</p></div>
+        <div class="step"><span class="n">STEP 1</span><h3>Text us the date</h3><p>Text 216-789-5861 with the day, your address, and how many players are coming.</p></div>
         <div class="step"><span class="n">STEP 2</span><h3>We roll up</h3><p>We bring the batting cage, pitching machine, radar pitching cage, and the whole party to your house.</p></div>
         <div class="step"><span class="n">STEP 3</span><h3>Play ball</h3><p>Two hours of swings and fastballs. You get to enjoy the party.</p></div>
       </div>
@@ -281,7 +270,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
     <div class="wrap price-grid">
       <div>
         <p class="eyebrow">Simple pricing</p>
-        <h2>One price. One call.</h2>
+        <h2>One price. One text.</h2>
         <p class="sub">No add-ons to chase and no venue to rent. The whole baseball party comes to your house for a flat rate.</p>
       </div>
       <div class="ticket">
@@ -297,7 +286,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
         </div>
         <div class="stub">
           <div class="admit">Admit<br>one<br>team</div>
-          <a class="btn btn-primary" href="#book">Book it</a>
+          <a class="btn btn-primary" href="sms:+12167895861">Text us</a>
         </div>
       </div>
     </div>
@@ -307,31 +296,19 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
     <div class="wrap book-grid">
       <div class="book-copy">
         <p class="eyebrow">Book your date</p>
-        <h2>Step up to the plate.</h2>
-        <p>Fill this in and we will have what we need to hold your date. Your request is written out below, ready to copy and send to us.</p>
-        <div class="contact" id="contact" hidden></div>
+        <h2>Text us to book.</h2>
+        <p>Send us a text and we will text you back to hold your date.</p>
       </div>
-      <form class="card" id="bookForm" novalidate>
-        <div class="field"><label for="parent">Your name</label><input id="parent" name="parent" autocomplete="name" required></div>
-        <div class="field"><label for="kid">Birthday kid</label><input id="kid" name="kid" required></div>
-        <div class="field"><label for="age">Turning</label><input id="age" name="age" type="number" min="3" max="18" inputmode="numeric"></div>
-        <div class="field"><label for="date">Party date</label><input id="date" name="date" type="date" required></div>
-        <div class="field full"><label for="place">Party address or city</label><input id="place" name="place" autocomplete="street-address" required></div>
-        <div class="field"><label for="kids">Kids coming</label><input id="kids" name="kids" type="number" min="1" max="60" inputmode="numeric"></div>
-        <div class="field"><label for="time">Start time</label><input id="time" name="time" type="time"></div>
-        <div class="field full"><label for="notes">Anything else</label><textarea id="notes" name="notes" placeholder="Yard size, gate codes, favorite team"></textarea></div>
-        <div class="form-foot">
-          <button class="btn btn-primary" type="submit">Write my request</button>
-          <small>$1,099 for two hours</small>
-        </div>
-        <div class="result" id="result" hidden>
-          <pre id="msg"></pre>
-          <div class="row">
-            <button class="btn btn-ghost" id="copyBtn" type="button">Copy request</button>
-            <span class="status" id="status" role="status"></span>
-          </div>
-        </div>
-      </form>
+      <div class="text-card">
+        <p class="eyebrow">Text us at</p>
+        <div class="num">216-789-5861</div>
+        <ul>
+          <li>Your party date</li>
+          <li>Your address or city</li>
+          <li>How many kids are coming</li>
+        </ul>
+        <a class="btn btn-primary" href="sms:+12167895861">Text 216-789-5861</a>
+      </div>
     </div>
   </section>
 </main>
@@ -339,14 +316,12 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 <footer>
   <div class="wrap">
     <span>&copy; 2026 Major League Birthday Parties</span>
-    <span>Batting cage. Pitching machine. Radar pitching cage. The whole party.</span>
+    <a href="sms:+12167895861">Text 216-789-5861</a>
   </div>
 </footer>
 
 <script>
 (function () {
-  var CONTACT = { phone: "", email: "" }; // add the real phone number and email here
-
   var reading = document.getElementById("reading");
   var verdict = document.getElementById("verdict");
   var log = document.getElementById("log");
@@ -395,75 +370,6 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
       reading.textContent = 10 + Math.floor(Math.random() * 60);
       if (ticks > 11) { clearInterval(timer); settle(); }
     }, 70);
-  });
-
-  // Contact details appear only when filled in above.
-  var c = document.getElementById("contact");
-  if (CONTACT.phone || CONTACT.email) {
-    c.hidden = false;
-    if (CONTACT.phone) { var a = document.createElement("span"); a.textContent = CONTACT.phone; c.appendChild(a); }
-    if (CONTACT.email) { var b = document.createElement("span"); b.textContent = CONTACT.email; c.appendChild(b); }
-  }
-
-  var form = document.getElementById("bookForm");
-  var result = document.getElementById("result");
-  var msg = document.getElementById("msg");
-  var status = document.getElementById("status");
-  var copyBtn = document.getElementById("copyBtn");
-
-  function prettyDate(v) {
-    var p = v.split("-");
-    if (p.length !== 3) return v;
-    var d = new Date(+p[0], +p[1] - 1, +p[2]);
-    return d.toLocaleDateString(undefined, { weekday: "long", month: "long", day: "numeric", year: "numeric" });
-  }
-  function prettyTime(v) {
-    var p = v.split(":");
-    var h = +p[0], m = p[1];
-    return ((h % 12) || 12) + ":" + m + (h >= 12 ? " PM" : " AM");
-  }
-
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
-    var f = form.elements;
-    var missing = ["parent", "kid", "date", "place"].filter(function (k) { return !f[k].value.trim(); });
-    if (missing.length) {
-      f[missing[0]].focus();
-      status.textContent = "";
-      result.hidden = false;
-      msg.textContent = "Please fill in your name, the birthday kid, the party date, and the address or city.";
-      copyBtn.hidden = true;
-      return;
-    }
-    copyBtn.hidden = false;
-    var lines = [];
-    lines.push("Hi Major League Birthday Parties! I would like to book the two-hour baseball party ($1,099).");
-    lines.push("");
-    lines.push("Birthday kid: " + f.kid.value.trim() + (f.age.value ? " (turning " + f.age.value + ")" : ""));
-    lines.push("Date: " + prettyDate(f.date.value) + (f.time.value ? " at " + prettyTime(f.time.value) : ""));
-    lines.push("Location: " + f.place.value.trim());
-    if (f.kids.value) lines.push("Kids coming: " + f.kids.value);
-    if (f.notes.value.trim()) lines.push("Notes: " + f.notes.value.trim());
-    lines.push("");
-    lines.push("Thanks, " + f.parent.value.trim());
-    msg.textContent = lines.join("\n");
-    status.textContent = "";
-    result.hidden = false;
-  });
-
-  copyBtn.addEventListener("click", function () {
-    var text = msg.textContent;
-    function fallback() {
-      var r = document.createRange();
-      r.selectNodeContents(msg);
-      var s = window.getSelection();
-      s.removeAllRanges();
-      s.addRange(r);
-      status.textContent = "Text selected. Press copy on your device.";
-    }
-    try {
-      navigator.clipboard.writeText(text).then(function () { status.textContent = "Copied."; }, fallback);
-    } catch (err) { fallback(); }
   });
 })();
 </script>
