@@ -3,44 +3,32 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Mobile baseball themed birthday parties. We bring the batting cage, pitching machine, radar pitching cage, and the whole party to your house. $1,099 for two hours. Text 818-400-8201 to book.">
-<style>body{margin:0}</style>
+<meta name="description" content="Major League Birthday Parties brings a full batting cage, pitching machine, radar pitching cage and the whole baseball party to your house in Calabasas, Agoura Hills, Oak Park, Westlake Village, Thousand Oaks, Newbury Park and Camarillo. $1,099 for two hours. Text 805-506-5472 to book.">
 <title>Major League Birthday Parties</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Big+Shoulders+Display:wght@700;800;900&family=Orbitron:wght@600;800&display=swap">
 <style>
-/* Layout: chalk-white page with outfield-green bands; hero pairs a headline with a working radar-gun scoreboard.
-   Color: chalk, outfield green, scoreboard amber, stitch red, ink. Type: Big Shoulders Display / Barlow / Orbitron (LED). */
+/* Layout: sky-blue page with black banners and navy bands; hero pairs a headline with a working radar-gun scoreboard.
+   Color: sky blue, black, white, lime-yellow accent, jersey navy. Type: Big Shoulders Display / Barlow / Orbitron (LED). */
 :root {
-  --bg: #EDF0EA;
-  --card: #F8FAF5;
-  --fg: #10231B;
-  --muted: #4E6358;
-  --line: #C5CFC4;
-  --field: #0F3B2B;
-  --field-deep: #0A2A1F;
-  --field-ink: #F4F7F1;
-  --field-muted: #A9C0B2;
-  --led: #FFB81C;
-  --stitch: #D1352B;
-  --on-stitch: #FFFFFF;
-  --focus: #0F3B2B;
+  color-scheme: dark;
+  --bg: #3A67A8;
+  --card: #1F3160;
+  --fg: #FFFFFF;
+  --muted: #E3ECF9;
+  --line: rgba(255,255,255,.28);
+  --field: #27345C;
+  --field-deep: #000000;
+  --field-ink: #FFFFFF;
+  --field-muted: #C9D6EE;
+  --led: #E4F554;
+  --stitch: #E4F554;
+  --on-stitch: #16213F;
+  --focus: #E4F554;
   --font-display: "Big Shoulders Display", "Arial Narrow", Impact, sans-serif;
   --font-body: "Barlow", system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-led: "Orbitron", "Courier New", monospace;
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg: #0B1713; --card: #12221B; --fg: #E9F0E9; --muted: #9DB1A5; --line: #26382F;
-    --field: #0F3B2B; --field-deep: #07190F; --field-ink: #F4F7F1; --field-muted: #A9C0B2;
-    --stitch: #EF5148; --on-stitch: #0B1713; --focus: #FFB81C; color-scheme: dark;
-  }
-}
-:root[data-theme="dark"] {
-  --bg: #0B1713; --card: #12221B; --fg: #E9F0E9; --muted: #9DB1A5; --line: #26382F;
-  --field: #0F3B2B; --field-deep: #07190F; --field-ink: #F4F7F1; --field-muted: #A9C0B2;
-  --stitch: #EF5148; --on-stitch: #0B1713; --focus: #FFB81C; color-scheme: dark;
 }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
@@ -50,7 +38,7 @@ a { color: inherit; }
 :focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
 .wrap { width: 100%; max-width: 1140px; margin-inline: auto; padding-inline: clamp(16px, 4vw, 40px); }
 h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; line-height: 0.92; letter-spacing: 0.005em; margin: 0; text-wrap: balance; }
-.eyebrow { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); margin: 0; }
+.eyebrow { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--stitch); margin: 0; }
 .btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; font: 600 1rem/1 var(--font-body); letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; padding: 1rem 1.5rem; border: 2px solid transparent; border-radius: 4px; cursor: pointer; min-height: 52px; }
 .btn-primary { background: var(--stitch); color: var(--on-stitch); }
 .btn-primary:hover { filter: brightness(1.08); }
@@ -58,7 +46,7 @@ h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; line-h
 .btn-ghost:hover { background: color-mix(in srgb, currentColor 10%, transparent); }
 
 /* Header */
-.top { padding-block: 20px; }
+.top { padding-block: 20px; background: #000; color: #FFF; }
 .top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
 .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; font-family: var(--font-display); font-weight: 800; font-size: 1.35rem; line-height: 1; text-transform: uppercase; letter-spacing: 0.02em; }
 .brand svg { flex: none; }
@@ -68,7 +56,7 @@ h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; line-h
 @media (max-width: 560px) { .nav a.hide-sm { display: none; } }
 
 /* Hero */
-.hero { padding-block: clamp(28px, 6vw, 64px) clamp(40px, 7vw, 80px); }
+.hero { background: linear-gradient(180deg, #2F5A96 0%, var(--bg) 100%); padding-block: clamp(28px, 6vw, 64px) clamp(40px, 7vw, 80px); }
 .hero-grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); gap: clamp(28px, 5vw, 64px); align-items: center; }
 @media (max-width: 860px) { .hero-grid { grid-template-columns: minmax(0, 1fr); } }
 .hero h1 { font-weight: 900; font-size: clamp(3.1rem, 10.5vw, 7.2rem); margin-block: 14px 22px; }
@@ -113,6 +101,9 @@ h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; line-h
 @media (max-width: 760px) { .whole { grid-template-columns: minmax(0, 1fr); } }
 
 /* How it works */
+.areas-list { list-style: none; margin: 22px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+.areas-list li { font-family: var(--font-display); font-weight: 800; font-size: 1.35rem; text-transform: uppercase; letter-spacing: 0.04em; padding: 10px 18px; background: #000; color: #FFF; border-radius: 4px; border-left: 4px solid var(--stitch); }
+.areas p.note { margin: 18px 0 0; color: var(--muted); }
 .steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; border-top: 3px solid var(--fg); }
 @media (max-width: 760px) { .steps { grid-template-columns: minmax(0, 1fr); } }
 .step { padding: 22px 24px 8px 0; display: grid; gap: 8px; align-content: start; }
@@ -126,39 +117,48 @@ h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; line-h
 .price-grid { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: clamp(28px, 5vw, 64px); align-items: center; }
 @media (max-width: 860px) { .price-grid { grid-template-columns: minmax(0, 1fr); } }
 .price-band h2 { font-size: clamp(2.4rem, 6.5vw, 4.4rem); font-weight: 800; margin-block: 12px 14px; }
-.price-band .eyebrow { color: var(--field-muted); }
 .price-band p.sub { color: var(--field-muted); max-width: 28rem; margin: 0; }
-.ticket { display: grid; grid-template-columns: minmax(0, 1fr) 150px; background: var(--card); color: var(--fg); border-radius: 8px; position: relative; }
+.ticket { display: grid; grid-template-columns: minmax(0, 1fr) 150px; background: #FFFFFF; color: #16213F; border-radius: 8px; position: relative; }
 @media (max-width: 520px) { .ticket { grid-template-columns: minmax(0, 1fr); } }
 .ticket::before, .ticket::after { content: ""; position: absolute; width: 26px; height: 26px; border-radius: 50%; background: var(--field); right: calc(150px - 13px); }
 .ticket::before { top: -13px; }
 .ticket::after { bottom: -13px; }
 @media (max-width: 520px) { .ticket::before, .ticket::after { display: none; } }
 .ticket-main { padding: clamp(22px, 4vw, 34px); display: grid; gap: 14px; min-width: 0; }
-.ticket-main .eyebrow { color: var(--muted); }
+.ticket-main .eyebrow { color: #55618A; }
 .amount { font-family: var(--font-display); font-weight: 900; font-size: clamp(5rem, 14vw, 7.5rem); line-height: 0.85; display: flex; align-items: flex-start; gap: 4px; }
-.amount sup { font-size: 0.4em; margin-top: 0.1em; color: var(--stitch); }
+.amount sup { font-size: 0.4em; margin-top: 0.1em; color: #E8863A; }
 .ticket-main .for { font-weight: 600; font-size: 1.1rem; margin: 0; }
-.ticket-main ul { margin: 4px 0 0; padding: 0; list-style: none; display: grid; gap: 6px; color: var(--muted); }
-.ticket-main li::before { content: "\2713"; color: var(--stitch); font-weight: 700; margin-right: 10px; }
-.stub { border-left: 2px dashed var(--line); padding: 22px 16px; display: grid; gap: 14px; align-content: center; justify-items: center; text-align: center; }
-@media (max-width: 520px) { .stub { border-left: 0; border-top: 2px dashed var(--line); } }
+.ticket-main ul { margin: 4px 0 0; padding: 0; list-style: none; display: grid; gap: 6px; color: #3A4670; }
+.ticket-main li::before { content: "\2713"; color: #E8863A; font-weight: 700; margin-right: 10px; }
+.stub { border-left: 2px dashed #B7BFD6; padding: 22px 16px; display: grid; gap: 14px; align-content: center; justify-items: center; text-align: center; }
+@media (max-width: 520px) { .stub { border-left: 0; border-top: 2px dashed #B7BFD6; } }
 .stub .admit { font-family: var(--font-display); font-weight: 800; font-size: 1.9rem; text-transform: uppercase; line-height: 0.95; }
-.stub .btn { padding-inline: 1rem; width: 100%; }
+.stub .btn { padding-inline: 1rem; width: 100%; background: #000; color: #FFF; }
 
 /* Booking */
 .book-grid { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: clamp(28px, 5vw, 64px); align-items: center; }
 @media (max-width: 860px) { .book-grid { grid-template-columns: minmax(0, 1fr); } }
 .book-copy h2 { font-size: clamp(2.4rem, 6.5vw, 4.4rem); font-weight: 800; margin-block: 12px 16px; }
 .book-copy p { color: var(--muted); margin: 0; max-width: 28rem; }
-.text-card { background: var(--card); border: 1px solid var(--line); border-radius: 6px; padding: clamp(22px, 4vw, 36px); display: grid; gap: 18px; min-width: 0; }
+.text-card { background: #000; border: 3px solid #FFFFFF; border-radius: 6px; padding: clamp(22px, 4vw, 36px); display: grid; gap: 18px; min-width: 0; }
 .text-card .num { font-family: var(--font-display); font-weight: 900; font-size: clamp(2.8rem, 9vw, 4.6rem); line-height: 0.95; letter-spacing: 0.01em; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
 .text-card ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 6px; color: var(--muted); }
 .text-card li::before { content: "\2713"; color: var(--stitch); font-weight: 700; margin-right: 10px; }
 .text-card .btn { justify-self: start; }
 
-footer { border-top: 1px solid var(--line); padding-block: 28px; color: var(--muted); font-size: 0.9rem; }
+footer { background: #000; padding-block: 28px; color: #FFF; font-size: 0.9rem; }
 footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
+.promo-pop { position: fixed; inset: 0; z-index: 100; display: none; align-items: center; justify-content: center; padding: 16px; background: rgba(0,0,0,.6); }
+.promo-pop.open { display: flex; }
+.promo-box { position: relative; width: 100%; max-width: 460px; background: #000; color: #FFF; border: 3px solid #FFF; border-radius: 8px; padding: clamp(26px, 5vw, 38px); text-align: center; display: grid; gap: 14px; justify-items: center; }
+.promo-box h2 { font-size: clamp(2.6rem, 9vw, 3.8rem); font-weight: 900; line-height: 0.95; }
+.promo-box h2 span { color: var(--stitch); }
+.promo-box p { margin: 0; }
+.promo-code { font-family: var(--font-display); font-weight: 900; font-size: 2rem; letter-spacing: 0.12em; color: var(--stitch); border: 2px dashed var(--stitch); border-radius: 4px; padding: 10px 18px; }
+.promo-close { position: absolute; top: 8px; right: 8px; width: 44px; height: 44px; border: 0; border-radius: 4px; background: transparent; color: #FFF; font-size: 1.8rem; line-height: 1; cursor: pointer; }
+.promo-skip { background: none; border: 0; color: #C9D6EE; font: inherit; font-size: 0.9rem; text-decoration: underline; cursor: pointer; padding: 8px; }
+body{margin:0}
 </style>
 </head>
 <body>
@@ -168,8 +168,8 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
     <a class="brand" href="#top" aria-label="Major League Birthday Parties, home">
       <svg width="34" height="34" viewBox="0 0 32 32" aria-hidden="true">
         <circle cx="16" cy="16" r="14" fill="#F8FAF5" stroke="currentColor" stroke-width="2"/>
-        <path d="M9.5 5.5c4.2 4.4 4.2 16.6 0 21" fill="none" stroke="#D1352B" stroke-width="2" stroke-linecap="round" stroke-dasharray="2.6 2.4"/>
-        <path d="M22.5 5.5c-4.2 4.4-4.2 16.6 0 21" fill="none" stroke="#D1352B" stroke-width="2" stroke-linecap="round" stroke-dasharray="2.6 2.4"/>
+        <path d="M9.5 5.5c4.2 4.4 4.2 16.6 0 21" fill="none" stroke="#27345C" stroke-width="2" stroke-linecap="round" stroke-dasharray="2.6 2.4"/>
+        <path d="M22.5 5.5c-4.2 4.4-4.2 16.6 0 21" fill="none" stroke="#27345C" stroke-width="2" stroke-linecap="round" stroke-dasharray="2.6 2.4"/>
       </svg>
       <span>Major League<br>Birthday Parties</span>
     </a>
@@ -177,7 +177,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
       <a class="hide-sm" href="#bring">What we bring</a>
       <a class="hide-sm" href="#how">How it works</a>
       <a class="hide-sm" href="#price">Price</a>
-      <a class="btn btn-primary" href="sms:+18184008201" style="min-height:44px;padding:0.75rem 1.1rem">Text 818-400-8201</a>
+      <a class="btn btn-primary" href="sms:+18055065472" style="min-height:44px;padding:0.75rem 1.1rem">Text 805-506-5472</a>
     </nav>
   </div>
 </header>
@@ -190,7 +190,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
         <h1>The whole ballpark, in your <span class="red">backyard.</span></h1>
         <p class="lede">We bring the full batting cage and pitching machine, the radar pitching cage, and the whole party to your house. One stop shop for a baseball themed party.</p>
         <div class="cta-row">
-          <a class="btn btn-primary" href="sms:+18184008201">Text 818-400-8201</a>
+          <a class="btn btn-primary" href="sms:+18055065472">Text 805-506-5472</a>
           <p class="price-note">$1,099 <span>for two hours</span></p>
         </div>
       </div>
@@ -226,7 +226,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
             <rect x="130" y="70" width="140" height="100"/>
             <path d="M20 10L130 70M380 10L270 70M20 250L130 170M380 250L270 170"/>
             <path d="M165 70v100M200 70v100M235 70v100M130 103h140M130 137h140" opacity="0.45"/>
-            <path d="M178 232l22-12 22 12-8 12h-28z" fill="#F8FAF5" stroke="#10231B" stroke-width="1.5"/>
+            <path d="M178 232l22-12 22 12-8 12h-28z" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="1.5"/>
           </svg>
           <h3>Batting cage and pitching machine</h3>
           <p>The full batting cage and a pitching machine set up at your house. Every kid steps in and takes real swings.</p>
@@ -259,7 +259,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
         <h2>Three steps to game day.</h2>
       </div>
       <div class="steps">
-        <div class="step"><span class="n">STEP 1</span><h3>Text us the date</h3><p>Text 818-400-8201 with the day, your address, and how many players are coming.</p></div>
+        <div class="step"><span class="n">STEP 1</span><h3>Text us the date</h3><p>Text 805-506-5472 with the day, your address, and how many players are coming.</p></div>
         <div class="step"><span class="n">STEP 2</span><h3>We roll up</h3><p>We bring the batting cage, pitching machine, radar pitching cage, and the whole party to your house.</p></div>
         <div class="step"><span class="n">STEP 3</span><h3>Play ball</h3><p>Two hours of swings and fastballs. You get to enjoy the party.</p></div>
       </div>
@@ -286,9 +286,28 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
         </div>
         <div class="stub">
           <div class="admit">Admit<br>one<br>team</div>
-          <a class="btn btn-primary" href="sms:+18184008201">Text us</a>
+          <a class="btn btn-primary" href="sms:+18055065472">Text us</a>
         </div>
       </div>
+    </div>
+  </section>
+
+  <section class="section areas" id="areas" style="padding-top:0">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Where we play</p>
+        <h2>Serving the Conejo Valley and beyond.</h2>
+      </div>
+      <ul class="areas-list">
+        <li>Calabasas</li>
+        <li>Agoura Hills</li>
+        <li>Oak Park</li>
+        <li>Westlake Village</li>
+        <li>Thousand Oaks</li>
+        <li>Newbury Park</li>
+        <li>Camarillo</li>
+      </ul>
+      <p class="note">We bring the ballpark to your house in all seven. Not sure if you are in range? Just text us.</p>
     </div>
   </section>
 
@@ -301,13 +320,13 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
       </div>
       <div class="text-card">
         <p class="eyebrow">Text us at</p>
-        <div class="num">818-400-8201</div>
+        <div class="num">805-506-5472</div>
         <ul>
           <li>Your party date</li>
           <li>Your address or city</li>
           <li>How many kids are coming</li>
         </ul>
-        <a class="btn btn-primary" href="sms:+18184008201">Text 818-400-8201</a>
+        <a class="btn btn-primary" href="sms:+18055065472">Text 805-506-5472</a>
       </div>
     </div>
   </section>
@@ -316,10 +335,21 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 <footer>
   <div class="wrap">
     <span>&copy; 2026 Major League Birthday Parties</span>
-    <a href="sms:+18184008201">Text 818-400-8201</a>
+    <a href="sms:+18055065472">Text 805-506-5472</a>
   </div>
 </footer>
 
+<div class="promo-pop" id="promo" role="dialog" aria-modal="true" aria-labelledby="promo-title">
+  <div class="promo-box">
+    <button class="promo-close" type="button" aria-label="Close" data-promo-close>&times;</button>
+    <p class="eyebrow">November special</p>
+    <h2 id="promo-title"><span>$100 off</span> November bookings</h2>
+    <p>Use promo code</p>
+    <div class="promo-code">PLAYOFFS</div>
+    <a class="btn btn-primary" href="sms:+18055065472">Text 805-506-5472</a>
+    <button class="promo-skip" type="button" data-promo-close>No thanks</button>
+  </div>
+</div>
 <script>
 (function () {
   var reading = document.getElementById("reading");
@@ -371,6 +401,16 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
       if (ticks > 11) { clearInterval(timer); settle(); }
     }, 70);
   });
+})();
+
+(function () {
+  var pop = document.getElementById('promo'); if (!pop) return;
+  var seen = false;
+  try { seen = sessionStorage.getItem('promoSeen') === '1'; } catch (e) {}
+  function close() { pop.classList.remove('open'); try { sessionStorage.setItem('promoSeen', '1'); } catch (e) {} }
+  pop.addEventListener('click', function (e) { if (e.target === pop || e.target.hasAttribute('data-promo-close')) close(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+  if (!seen) setTimeout(function () { pop.classList.add('open'); var b = pop.querySelector('.promo-close'); if (b) b.focus(); }, 1200);
 })();
 </script>
 
