@@ -42,23 +42,23 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Big+Shoulders+Display:wght@700;800;900&family=Orbitron:wght@600;800&display=swap">
 <style>
-/* Layout: sky-blue page with black banners and navy bands; hero pairs a headline with a working radar-gun scoreboard.
-   Color: sky blue, black, white, lime-yellow accent, jersey navy. Type: Big Shoulders Display / Barlow / Orbitron (LED). */
+/* Layout: white page with black header/footer and navy bands; hero pairs a headline with a working radar-gun scoreboard.
+   Color: white, navy ink, ballpark-red accent on light surfaces, lime LED accent on dark surfaces. Type: Big Shoulders Display / Barlow / Orbitron (LED). */
 :root {
-  color-scheme: dark;
-  --bg: #3A67A8;
-  --card: #1F3160;
-  --fg: #FFFFFF;
-  --muted: #E3ECF9;
-  --line: rgba(255,255,255,.28);
+  color-scheme: light;
+  --bg: #FFFFFF;
+  --card: #F3F5FA;
+  --fg: #16213F;
+  --muted: #4A5677;
+  --line: #DCE1EB;
   --field: #27345C;
   --field-deep: #000000;
   --field-ink: #FFFFFF;
   --field-muted: #C9D6EE;
   --led: #E4F554;
-  --stitch: #E4F554;
-  --on-stitch: #16213F;
-  --focus: #E4F554;
+  --stitch: #A3162E;
+  --on-stitch: #FFFFFF;
+  --focus: #A3162E;
   --font-display: "Big Shoulders Display", "Arial Narrow", Impact, sans-serif;
   --font-body: "Barlow", system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-led: "Orbitron", "Courier New", monospace;
@@ -74,7 +74,7 @@ h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; line-h
 .eyebrow { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--stitch); margin: 0; }
 .btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; font: 600 1rem/1 var(--font-body); letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; padding: 1rem 1.5rem; border: 2px solid transparent; border-radius: 4px; cursor: pointer; min-height: 52px; }
 .btn-primary { background: var(--stitch); color: var(--on-stitch); }
-.btn-primary:hover { filter: brightness(1.08); }
+.btn-primary:hover { filter: brightness(1.12); }
 .btn-ghost { border-color: currentColor; background: transparent; color: inherit; }
 .btn-ghost:hover { background: color-mix(in srgb, currentColor 10%, transparent); }
 
@@ -89,7 +89,7 @@ h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; line-h
 @media (max-width: 560px) { .nav a.hide-sm { display: none; } }
 
 /* Hero */
-.hero { background: linear-gradient(180deg, #2F5A96 0%, var(--bg) 100%); padding-block: clamp(28px, 6vw, 64px) clamp(40px, 7vw, 80px); }
+.hero { background: linear-gradient(180deg, #EEF2F9 0%, var(--bg) 100%); padding-block: clamp(28px, 6vw, 64px) clamp(40px, 7vw, 80px); }
 .hero-grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); gap: clamp(28px, 5vw, 64px); align-items: center; }
 @media (max-width: 860px) { .hero-grid { grid-template-columns: minmax(0, 1fr); } }
 .hero h1 { font-weight: 900; font-size: clamp(3.1rem, 10.5vw, 7.2rem); margin-block: 14px 22px; }
@@ -190,15 +190,22 @@ h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; line-h
 .faq-list details[open] summary::after { content: "\2013"; }
 .faq-list details p { margin: 0; padding: 0 22px 20px; color: var(--muted); max-width: 44rem; }
 
+/* Accents that sit on dark surfaces use the lime LED color */
+.price-band .eyebrow, .whole .eyebrow, .text-card .eyebrow, .promo-box .eyebrow, .text-card li::before { color: var(--led); }
+.price-band .ticket-main .eyebrow { color: #55618A; }
+.top :focus-visible, .board :focus-visible, .price-band :focus-visible, .text-card :focus-visible, .promo-box :focus-visible, footer :focus-visible { outline-color: var(--led); }
+.text-card { border-color: #000; color: #FFFFFF; }
+.text-card ul { color: #C9D6EE; }
+
 footer { background: #000; padding-block: 28px; color: #FFF; font-size: 0.9rem; }
 footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
 .promo-pop { position: fixed; inset: 0; z-index: 100; display: none; align-items: center; justify-content: center; padding: 16px; background: rgba(0,0,0,.6); }
 .promo-pop.open { display: flex; }
 .promo-box { position: relative; width: 100%; max-width: 460px; background: #000; color: #FFF; border: 3px solid #FFF; border-radius: 8px; padding: clamp(26px, 5vw, 38px); text-align: center; display: grid; gap: 14px; justify-items: center; }
 .promo-box h2 { font-size: clamp(2.6rem, 9vw, 3.8rem); font-weight: 900; line-height: 0.95; }
-.promo-box h2 span { color: var(--stitch); }
+.promo-box h2 span { color: var(--led); }
 .promo-box p { margin: 0; }
-.promo-code { font-family: var(--font-display); font-weight: 900; font-size: 2rem; letter-spacing: 0.12em; color: var(--stitch); border: 2px dashed var(--stitch); border-radius: 4px; padding: 10px 18px; }
+.promo-code { font-family: var(--font-display); font-weight: 900; font-size: 2rem; letter-spacing: 0.12em; color: var(--led); border: 2px dashed var(--led); border-radius: 4px; padding: 10px 18px; }
 .promo-close { position: absolute; top: 8px; right: 8px; width: 44px; height: 44px; border: 0; border-radius: 4px; background: transparent; color: #FFF; font-size: 1.8rem; line-height: 1; cursor: pointer; }
 .promo-skip { background: none; border: 0; color: #C9D6EE; font: inherit; font-size: 0.9rem; text-decoration: underline; cursor: pointer; padding: 8px; }
 body{margin:0}
@@ -328,7 +335,7 @@ body{margin:0}
     </div>
   </section>
 
-  <section class="section areas" id="areas" style="padding-top:0">
+  <section class="section areas" id="areas">
     <div class="wrap">
       <div class="section-head">
         <p class="eyebrow">Where we play</p>
