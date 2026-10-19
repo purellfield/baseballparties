@@ -97,11 +97,11 @@ h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; line-h
 .hero .lede { color: #F1F1F1; }
 .hero .price-note span { color: #D6D6D6; }
 .hero :focus-visible { outline-color: var(--led); }
-.hero-grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); gap: clamp(28px, 5vw, 64px); align-items: center; }
+.hero-grid { display: grid; grid-template-columns: minmax(0, 46rem); }
 @media (max-width: 860px) { .hero-grid { grid-template-columns: minmax(0, 1fr); } }
 .hero h1 { font-weight: 900; font-size: clamp(2.6rem, 8vw, 4.6rem); margin-block: 0 22px; }
 .hero h1 .red { color: #FF4D5E; }
-.hero .lede { font-size: 1.2rem; max-width: 34em; margin: 0 0 28px; }
+.hero .lede { font-size: 1.2rem; max-width: 28em; margin: 0 0 28px; }
 .cta-row { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
 .price-note { font-weight: 600; }
 .price-note span { color: var(--muted); font-weight: 400; }
@@ -252,19 +252,6 @@ body{margin:0}
         </div>
       </div>
 
-      <div class="board" role="group" aria-label="Radar pitching cage demo">
-        <div class="board-head"><span>Radar pitching cage</span><span id="boardTag">Sample pitches</span></div>
-        <div class="led-row">
-          <div class="led" id="reading" aria-live="polite" aria-atomic="true">38</div>
-          <div class="led-unit">MPH</div>
-        </div>
-        <p class="verdict" id="verdict">Solid arm</p>
-        <ul class="log" id="log" aria-label="Pitch log"></ul>
-        <div class="board-foot">
-          <button class="btn btn-primary" id="throwBtn" type="button">Throw a pitch</button>
-          <small>Every kid gets a number to beat.</small>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -431,58 +418,6 @@ body{margin:0}
   </div>
 </div>
 <script>
-(function () {
-  var reading = document.getElementById("reading");
-  var verdict = document.getElementById("verdict");
-  var log = document.getElementById("log");
-  var tag = document.getElementById("boardTag");
-  var btn = document.getElementById("throwBtn");
-  var pitches = [34, 41, 29, 46, 38];
-  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-  function label(v) {
-    if (v < 32) return "Warming up";
-    if (v < 41) return "Solid arm";
-    if (v < 50) return "Bringing heat";
-    return "Big league arm";
-  }
-  function renderLog() {
-    var best = Math.max.apply(null, pitches);
-    log.innerHTML = "";
-    pitches.slice(-6).forEach(function (p) {
-      var li = document.createElement("li");
-      li.textContent = p;
-      if (p === best) { li.className = "best"; li.title = "Best pitch"; }
-      log.appendChild(li);
-    });
-  }
-  renderLog();
-
-  var timer = null;
-  btn.addEventListener("click", function () {
-    if (timer) return;
-    var v = 28 + Math.floor(Math.random() * 31);
-    if (pitches.length === 5 && tag.textContent === "Sample pitches") { pitches = []; tag.textContent = "Your pitches"; }
-    btn.disabled = true;
-    verdict.textContent = "Windup...";
-    function settle() {
-      reading.textContent = v;
-      verdict.textContent = label(v);
-      pitches.push(v);
-      renderLog();
-      btn.disabled = false;
-      timer = null;
-    }
-    if (reduce) { settle(); return; }
-    var ticks = 0;
-    timer = setInterval(function () {
-      ticks++;
-      reading.textContent = 10 + Math.floor(Math.random() * 60);
-      if (ticks > 11) { clearInterval(timer); settle(); }
-    }, 70);
-  });
-})();
-
 (function () {
   var pop = document.getElementById('promo'); if (!pop) return;
   var seen = false;
