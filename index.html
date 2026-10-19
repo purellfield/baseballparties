@@ -122,6 +122,7 @@ h1, h2, h3 { font-family: var(--font-display); text-transform: uppercase; line-h
 .panel h3 { font-size: 2rem; font-weight: 800; }
 .panel p { margin: 0; color: var(--muted); }
 .panel svg.art { width: 100%; height: auto; max-height: 230px; color: var(--fg); }
+.panel img.photo { display: block; width: 100%; height: auto; aspect-ratio: 1433 / 736; object-fit: cover; border-radius: 4px; }
 .mini-led { display: inline-flex; align-items: baseline; gap: 8px; background: var(--field-deep); padding: 14px 20px; border-radius: 4px; justify-self: start; }
 .mini-led b { font-family: var(--font-led); font-size: 3rem; line-height: 1; color: var(--led); font-weight: 800; }
 .mini-led i { font-family: var(--font-led); font-style: normal; color: var(--led); font-size: 0.9rem; letter-spacing: 0.1em; }
@@ -262,15 +263,7 @@ body{margin:0}
       </div>
       <div class="bring-grid">
         <article class="panel">
-          <svg class="art" viewBox="0 0 400 260" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" role="img" aria-label="Drawing of a batting cage seen from the plate">
-            <rect x="20" y="10" width="360" height="240" opacity="0.9"/>
-            <rect x="56" y="30" width="288" height="194" opacity="0.5"/>
-            <rect x="93" y="50" width="214" height="147" opacity="0.5"/>
-            <rect x="130" y="70" width="140" height="100"/>
-            <path d="M20 10L130 70M380 10L270 70M20 250L130 170M380 250L270 170"/>
-            <path d="M165 70v100M200 70v100M235 70v100M130 103h140M130 137h140" opacity="0.45"/>
-            <path d="M178 232l22-12 22 12-8 12h-28z" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="1.5"/>
-          </svg>
+          <img class="photo" src="batting-cage.jpg" width="1433" height="736" loading="lazy" decoding="async" alt="Batting cage and pitching machine set up on a lawn for a backyard baseball birthday party">
           <h3>Batting cage and pitching machine</h3>
           <p>The full batting cage and a pitching machine set up at your house. Every kid steps in and takes real swings.</p>
         </article>
