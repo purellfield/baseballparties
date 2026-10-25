@@ -19,8 +19,6 @@ label{display:block;font-weight:700;margin:14px 0 6px;font-size:15px}
 .opt{font-weight:400;color:#667}
 input[type=text],input[type=tel],input[type=email],input[type=number]{width:100%;padding:13px 12px;font-size:17px;border:2px solid #d5dbe5;border-radius:9px}
 input:focus{outline:none;border-color:#0b2545}
-.check{display:flex;gap:10px;align-items:flex-start;margin-top:18px;font-weight:400}
-.check input{width:22px;height:22px;margin:0}
 button{margin-top:22px;width:100%;padding:16px;font-size:19px;font-weight:900;color:#0b2545;background:#ffd166;border:0;border-radius:10px;text-transform:uppercase;letter-spacing:.05em;cursor:pointer}
 button:hover{filter:brightness(.95)}
 .hp{position:absolute;left:-9999px}
@@ -42,6 +40,7 @@ footer a{color:#ffd166;font-weight:900;font-size:22px;text-decoration:none}
 <input type="hidden" name="_template" value="table">
 <input type="hidden" name="_captcha" value="false">
 <input type="hidden" name="_next" value="https://baseballparties.com/giveaway/thanks.html">
+<input type="hidden" name="send_offers" value="yes">
 <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off">
 <label for="name">Parent name</label>
 <input id="name" type="text" name="parent_name" autocomplete="name" required>
@@ -51,10 +50,9 @@ footer a{color:#ffd166;font-weight:900;font-size:22px;text-decoration:none}
 <input id="email" type="email" name="email" autocomplete="email" required>
 <label for="age">Player's age <span class="opt">(optional)</span></label>
 <input id="age" type="number" name="player_age" min="2" max="18" inputmode="numeric">
-<label class="check"><input type="checkbox" name="send_offers" value="yes" checked> Send me baseball party offers & updates</label>
 <button type="submit">Enter the Drawing</button>
 </form>
-<p class="fine">One entry per family. Drawing Dec 20, 2026. Parents/guardians 18+. Winner contacted by text.</p>
+<p class="fine">By entering this drawing, you agree to receive offers and promotions from Major League Birthday Parties. One entry per family. Drawing Dec 20, 2026. Parents/guardians 18+. Winner contacted by text.</p>
 </main>
 <footer>Giveaway sponsored by<br><a href="https://baseballparties.com/">baseballparties.com</a><br><small>Backyard baseball birthdays in the Conejo Valley</small></footer>
 </body>
