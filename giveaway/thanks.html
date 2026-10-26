@@ -48,7 +48,7 @@ var code=(new URLSearchParams(location.search).get("code")||"").toUpperCase().re
 if(!code){try{code=localStorage.getItem("mlb_giveaway_code")||""}catch(e){}}
 var url="https://baseballparties.com/giveaway/"+(code?"?ref="+code:"");
 if(!code)document.getElementById("nocode").style.display="block";
-var msg="We're entering to win an Easton Hype Fire Pool Party bat \u2014 add your kid here: "+url+" . Drawing Dec 28.";
+var msg="We're entering the baseballparties.com giveaway to win an Easton Hype Fire Pool Party bat \u2014 add your kid here: "+url+" Drawing Dec 28.";
 document.getElementById("link").value=url;
 document.getElementById("sms").href="sms:?&body="+encodeURIComponent(msg);
 function copy(t,label){var ok=document.getElementById("ok");
