@@ -22,6 +22,7 @@ input:focus{outline:none;border-color:#0b2545}
 button{margin-top:22px;width:100%;padding:16px;font-size:19px;font-weight:900;color:#0b2545;background:#ffd166;border:0;border-radius:10px;text-transform:uppercase;letter-spacing:.05em;cursor:pointer}
 button:hover{filter:brightness(.95)}
 .hp{position:absolute;left:-9999px}
+.share-hint{font-size:14px;color:#0b2545;text-align:center;margin:16px 0 0;font-weight:700}
 .fine{font-size:13px;color:#556;text-align:center;margin:18px 6px;line-height:1.5}
 footer{background:#0b2545;color:#fff;text-align:center;padding:24px 14px}
 footer a{color:#ffd166;font-weight:900;font-size:22px;text-decoration:none}
@@ -35,12 +36,14 @@ footer a{color:#ffd166;font-weight:900;font-size:22px;text-decoration:none}
 <p class="sub">No purchase necessary. Enter in 30 seconds.</p>
 </header>
 <main>
-<form action="https://formsubmit.co/b4e9c6079d802be3eea0dca1539fb701" method="POST">
+<form id="entry" action="https://formsubmit.co/b4e9c6079d802be3eea0dca1539fb701" method="POST">
 <input type="hidden" name="_subject" value="New Hype Fire Pool Party bat giveaway entry">
 <input type="hidden" name="_template" value="table">
 <input type="hidden" name="_captcha" value="false">
-<input type="hidden" name="_next" value="https://baseballparties.com/giveaway/thanks.html">
+<input type="hidden" name="_next" id="next" value="https://baseballparties.com/giveaway/thanks.html">
 <input type="hidden" name="send_offers" value="yes">
+<input type="hidden" name="referral_code" id="referral_code" value="">
+<input type="hidden" name="referred_by" id="referred_by" value="">
 <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off">
 <label for="name">Parent name</label>
 <input id="name" type="text" name="parent_name" autocomplete="name" required>
@@ -50,11 +53,26 @@ footer a{color:#ffd166;font-weight:900;font-size:22px;text-decoration:none}
 <input id="email" type="email" name="email" autocomplete="email" required>
 <label for="age">Player's age <span class="opt">(optional)</span></label>
 <input id="age" type="number" name="player_age" min="2" max="18" inputmode="numeric">
-
+<p class="share-hint">Share after you enter to earn more entries.</p>
 <button type="submit">Enter the Drawing</button>
 </form>
-<p class="fine">By entering this drawing, you agree to receive offers and promotions from Major League Birthday Parties. One entry per family. Drawing Dec 28, 2026. Parents/guardians 18+. Winner contacted by text.</p>
+<p class="fine">One base entry per family. Earn +1 bonus entry for each unique family that enters with your link (max 10 bonus). No self-referrals. Drawing Dec 28, 2026. Parents/guardians 18+. Winner contacted by text. By entering, you agree to receive offers and promotions from Major League Birthday Parties.</p>
 </main>
 <footer>Giveaway sponsored by<br><a href="https://baseballparties.com/">baseballparties.com</a><br><small>Backyard baseball birthdays in the Conejo Valley</small></footer>
+<script>
+(function(){
+var K="mlb_giveaway_code",A="ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+function gen(){var s="";for(var i=0;i<6;i++)s+=A[Math.floor(Math.random()*A.length)];return s}
+var code=null;try{code=localStorage.getItem(K)}catch(e){}
+if(!code||!/^[A-Z2-9]{6}$/.test(code)){code=gen();try{localStorage.setItem(K,code)}catch(e){}}
+var ref=(new URLSearchParams(location.search).get("ref")||"").toUpperCase().replace(/[^A-Z0-9]/g,"").slice(0,12);
+if(ref===code)ref="";
+document.getElementById("referral_code").value=code;
+document.getElementById("referred_by").value=ref;
+var nx="https://baseballparties.com/giveaway/thanks.html?code="+code;
+document.getElementById("next").value=nx;
+document.getElementById("entry").addEventListener("submit",function(){document.getElementById("next").value=nx;document.getElementById("referral_code").value=code;});
+})();
+</script>
 </body>
 </html>
