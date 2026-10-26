@@ -6,13 +6,21 @@
 <title>You're Entered! | Baseball Parties</title>
 <meta name="robots" content="noindex">
 <style>
+*{box-sizing:border-box}
 body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;background:#0b2545;color:#fff;text-align:center}
 .banner{background:#c8102e;font-weight:800;letter-spacing:.08em;padding:12px;font-size:14px;text-transform:uppercase}
-main{max-width:520px;margin:0 auto;padding:40px 18px}
+main{max-width:520px;margin:0 auto;padding:36px 18px}
 h1{color:#ffd166;font-size:36px;margin:0 0 12px;text-transform:uppercase}
 p{font-size:17px;line-height:1.5}
-.btn{display:block;margin:16px 0;padding:16px;border-radius:10px;font-weight:900;font-size:18px;text-decoration:none}
-.gold{background:#ffd166;color:#0b2545}.outline{border:2px solid #fff;color:#fff}
+.card{background:#fff;color:#0b2545;border-radius:14px;padding:22px 18px;margin:24px 0;box-shadow:0 6px 24px rgba(0,0,0,.25)}
+.card h2{margin:0 0 8px;font-size:22px;text-transform:uppercase}
+.card p{font-size:15px;margin:8px 0}
+#link{width:100%;padding:13px 12px;font-size:16px;border:2px solid #d5dbe5;border-radius:9px;text-align:center;color:#0b2545}
+.btn{display:block;width:100%;margin:12px 0;padding:15px;border-radius:10px;font-weight:900;font-size:17px;text-decoration:none;border:0;cursor:pointer}
+.gold{background:#ffd166;color:#0b2545}.outline{border:2px solid #fff;color:#fff;background:transparent}
+.navy{background:#0b2545;color:#fff}.line{background:#fff;color:#0b2545;border:2px solid #0b2545}
+.note{font-size:13px;color:#556}
+#ok{color:#c8102e;font-weight:800;min-height:20px;font-size:14px}
 </style>
 </head>
 <body>
@@ -20,9 +28,35 @@ p{font-size:17px;line-height:1.5}
 <main>
 <h1>You're Entered!</h1>
 <p>Thanks for entering the Easton Hype Fire Pool Party bat drawing. The winner will be drawn Dec 28, 2026 and contacted by text. Good luck!</p>
+<div class="card">
+<h2>Get more entries &mdash; invite teammates</h2>
+<p>Each new family that enters with your link = <b>+1 bonus entry</b> for you (up to 10).</p>
+<input id="link" type="text" readonly onclick="this.select()">
+<button class="btn navy" id="copyLink" type="button">Copy link</button>
+<button class="btn line" id="copyText" type="button">Copy text message</button>
+<a class="btn gold" id="sms" href="#">Text it to parents</a>
+<div id="ok"></div>
+<p class="note" id="nocode" style="display:none">We couldn't find your personal code. Open the giveaway page again on the same phone you entered from to get your personal link.</p>
+</div>
 <p>Got a birthday coming up? We bring the batting cage and the radar speed cage and run the whole party.</p>
 <a class="btn gold" href="https://baseballparties.com/">Go to baseballparties.com</a>
 <p><a href="https://baseballparties.com/#price" style="color:#ffd166">See the $1,099 Party Offer</a></p>
 </main>
+<script>
+(function(){
+var code=(new URLSearchParams(location.search).get("code")||"").toUpperCase().replace(/[^A-Z0-9]/g,"");
+if(!code){try{code=localStorage.getItem("mlb_giveaway_code")||""}catch(e){}}
+var url="https://baseballparties.com/giveaway/"+(code?"?ref="+code:"");
+if(!code)document.getElementById("nocode").style.display="block";
+var msg="We're entering to win an Easton Hype Fire Pool Party bat \u2014 add your kid here: "+url+" . Drawing Dec 28.";
+document.getElementById("link").value=url;
+document.getElementById("sms").href="sms:?&body="+encodeURIComponent(msg);
+function copy(t,label){var ok=document.getElementById("ok");
+ function fb(){var i=document.createElement("textarea");i.value=t;document.body.appendChild(i);i.select();try{document.execCommand("copy")}catch(e){}document.body.removeChild(i);ok.textContent=label}
+ if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){ok.textContent=label},fb)}else fb()}
+document.getElementById("copyLink").onclick=function(){copy(url,"Link copied!")};
+document.getElementById("copyText").onclick=function(){copy(msg,"Text copied \u2014 paste it in your team chat!")};
+})();
+</script>
 </body>
 </html>
