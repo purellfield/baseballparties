@@ -64,15 +64,28 @@ footer a{color:#ffd166;font-weight:900;font-size:22px;text-decoration:none}
 (function(){
 var K="mlb_giveaway_code",A="ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
 function gen(){var s="";for(var i=0;i<6;i++)s+=A[Math.floor(Math.random()*A.length)];return s}
-var code=null;try{code=localStorage.getItem(K)}catch(e){}
-if(!code||!/^[A-Z2-9]{6}$/.test(code)){code=gen();try{localStorage.setItem(K,code)}catch(e){}}
 var ref=(new URLSearchParams(location.search).get("ref")||"").toUpperCase().replace(/[^A-Z0-9]/g,"").slice(0,12);
+var code=null;
+// Arriving via someone else's link → always mint a NEW personal code (shared phones
+// used to keep the first parent's localStorage code).
+if(ref){
+  code=gen();
+  try{localStorage.setItem(K,code)}catch(e){}
+}else{
+  try{code=localStorage.getItem(K)}catch(e){}
+  if(!code||!/^[A-Z2-9]{6}$/.test(code)){code=gen();try{localStorage.setItem(K,code)}catch(e){}}
+}
 if(ref===code)ref="";
 document.getElementById("referral_code").value=code;
 document.getElementById("referred_by").value=ref;
-var nx="https://baseballparties.com/giveaway/thanks.html?code="+code;
-document.getElementById("next").value=nx;
-document.getElementById("entry").addEventListener("submit",function(){document.getElementById("next").value=nx;document.getElementById("referral_code").value=code;});
+function setNext(){
+  var nx="https://baseballparties.com/giveaway/thanks.html?code="+encodeURIComponent(code);
+  document.getElementById("next").value=nx;
+  document.getElementById("referral_code").value=code;
+  document.getElementById("referred_by").value=ref;
+}
+setNext();
+document.getElementById("entry").addEventListener("submit",setNext);
 })();
 </script>
 </body>
