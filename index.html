@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Backyard baseball birthday parties in Thousand Oaks, Westlake Village, Calabasas and the Conejo Valley. Batting cage, pitching machine, radar gun and operator. $899.">
-<title>Backyard Baseball Birthday Parties | Thousand Oaks &amp; Westlake Village</title>
+<title>Backyard Baseball Birthday Parties | Thousand Oaks & Westlake Village</title>
 <link rel="canonical" href="https://baseballparties.com/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://baseballparties.com/">
@@ -193,6 +193,23 @@ h2 { font-size: clamp(2.4rem, 6.5vw, 4.4rem); font-weight: 800; margin-bottom: c
 footer { background: #000; padding-block: 28px; color: #FFF; font-size: 0.9rem; }
 footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
 
+
+/* Contact form (secondary to text CTA) */
+.contact-form { background: var(--card); border: 1px solid var(--line); border-radius: 6px; padding: clamp(22px, 4vw, 32px); display: grid; gap: 14px; min-width: 0; }
+.contact-form h3 { font-size: 1.7rem; font-weight: 800; margin: 0; }
+.contact-form .lede { margin: 0; color: var(--muted); font-size: 0.98rem; }
+.contact-form label { display: grid; gap: 6px; font-weight: 600; font-size: 0.92rem; }
+.contact-form input, .contact-form textarea { width: 100%; padding: 12px 14px; font: 400 1rem/1.4 var(--font-body); color: var(--fg); background: #FFF; border: 1px solid var(--line); border-radius: 4px; }
+.contact-form input:focus, .contact-form textarea:focus { outline: 3px solid var(--red); outline-offset: 1px; border-color: var(--red); }
+.contact-form textarea { min-height: 110px; resize: vertical; }
+.contact-form .hp { position: absolute; left: -9999px; height: 0; overflow: hidden; }
+.contact-form .btn { justify-self: start; margin-top: 4px; }
+.contact-form .sent { margin: 0; padding: 14px 16px; background: #E8F5E9; border: 1px solid #A5D6A7; border-radius: 4px; color: #1B5E20; font-weight: 600; }
+.book-grid.with-form { grid-template-columns: minmax(0, 1fr); gap: clamp(28px, 5vw, 40px); align-items: start; }
+.book-top { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: clamp(28px, 5vw, 64px); align-items: center; }
+@media (max-width: 860px) { .book-top { grid-template-columns: minmax(0, 1fr); } }
+.or-line { display: flex; align-items: center; gap: 14px; color: var(--muted); font-weight: 600; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.08em; }
+.or-line::before, .or-line::after { content: ""; flex: 1; height: 1px; background: var(--line); }
 /* Giveaway popup */
 .promo-pop { position: fixed; inset: 0; z-index: 100; display: none; align-items: center; justify-content: center; padding: 16px; background: rgba(0,0,0,.6); }
 .promo-pop.open { display: flex; }
@@ -222,6 +239,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
       <a href="#how">How it works</a>
       <a href="#price">Price</a>
       <a href="#faq">FAQ</a>
+      <a href="#book">Contact</a>
       <a class="btn btn-sm" href="sms:+18055065472">Text 805-506-5472</a>
     </nav>
   </div>
@@ -340,17 +358,43 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
   </section>
 
   <section class="section" id="book" aria-labelledby="book-title">
-    <div class="wrap book-grid">
-      <h2 id="book-title">Text us to book</h2>
-      <div class="text-card">
-        <p class="num">805-506-5472</p>
-        <ul class="checks">
-          <li>Your party date</li>
-          <li>Your address or city</li>
-          <li>How many kids are coming</li>
-        </ul>
-        <a class="btn" href="sms:+18055065472">Text 805-506-5472</a>
+    <div class="wrap book-grid with-form">
+      <div class="book-top">
+        <h2 id="book-title">Text us to book</h2>
+        <div class="text-card">
+          <p class="num">805-506-5472</p>
+          <ul class="checks">
+            <li>Your party date</li>
+            <li>Your address or city</li>
+            <li>How many kids are coming</li>
+          </ul>
+          <a class="btn" href="sms:+18055065472">Text 805-506-5472</a>
+        </div>
       </div>
+      <p class="or-line" aria-hidden="true">Or</p>
+      <form class="contact-form" id="contact" action="https://formsubmit.co/b4e9c6079d802be3eea0dca1539fb701" method="POST">
+        <h3>Prefer to email?</h3>
+        <p class="lede">Send a quick note and we will get back to you. Texting is still the fastest way to hold a date.</p>
+        <p class="sent" id="contact-sent" hidden>Got it — we will reply soon. Prefer faster? Text 805-506-5472.</p>
+        <input type="hidden" name="_subject" value="New party inquiry — baseballparties.com">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="https://baseballparties.com/?sent=1#book">
+        <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <label for="contact-name">Name
+          <input id="contact-name" type="text" name="name" autocomplete="name" required>
+        </label>
+        <label for="contact-phone">Phone
+          <input id="contact-phone" type="tel" name="phone" autocomplete="tel" inputmode="tel" required>
+        </label>
+        <label for="contact-email">Email
+          <input id="contact-email" type="email" name="email" autocomplete="email" required>
+        </label>
+        <label for="contact-message">Message
+          <textarea id="contact-message" name="message" required placeholder="Party date, city, and about how many kids"></textarea>
+        </label>
+        <button class="btn" type="submit">Send message</button>
+      </form>
     </div>
   </section>
 </main>
@@ -373,6 +417,12 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
   </div>
 </div>
 <script>
+/* Contact form thank-you after FormSubmit redirect. */
+(function () {
+  if (new URLSearchParams(location.search).get('sent') !== '1') return;
+  var el = document.getElementById('contact-sent');
+  if (el) { el.hidden = false; el.scrollIntoView({ block: 'center' }); }
+})();
 /* Giveaway popup: opens once per browser session; closes on X, backdrop click, or Escape. */
 (function () {
   var pop = document.getElementById('promo'); if (!pop) return;
