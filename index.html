@@ -424,8 +424,11 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
   var el = document.getElementById('contact-sent');
   if (el) { el.hidden = false; el.scrollIntoView({ block: 'center' }); }
 })();
-/* Giveaway popup: opens once per browser session; closes on X, backdrop click, or Escape. */
+/* Giveaway popup: opens once per browser session; closes on X, backdrop click, or Escape.
+   POPUP_ENABLED = false turns it off without removing the markup; set to true to bring it back. */
+var POPUP_ENABLED = false;
 (function () {
+  if (!POPUP_ENABLED) return;
   var pop = document.getElementById('promo'); if (!pop) return;
   var seen = false;
   try { seen = sessionStorage.getItem('giveawaySeen') === '1'; } catch (e) {}
